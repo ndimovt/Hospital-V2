@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66698801-f415-48f3-8e94-397642bb7087" name="Changes" comment="This is my reworked project for hospital menagement. More changes to come in future">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/DataBaseOptions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Doctor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Human.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Nurse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Patient.java" afterDir="false" />
-    </list>
+    <list default="true" id="66698801-f415-48f3-8e94-397642bb7087" name="Changes" comment="This is my reworked project for hospital menagement. More changes to come in future" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,6 +68,14 @@
       <option name="presentableId" value="Default" />
       <updated>1678560121119</updated>
     </task>
+    <task id="LOCAL-00001" summary="This is my reworked project for hospital menagement. More changes to come in future">
+      <created>1678633816043</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678633816043</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
