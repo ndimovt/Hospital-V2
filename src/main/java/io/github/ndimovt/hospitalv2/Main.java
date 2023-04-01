@@ -1,7 +1,6 @@
 package io.github.ndimovt.hospitalv2;
 
 import java.sql.SQLException;
-import java.util.Locale;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
@@ -92,29 +91,29 @@ public class Main {
                             int departmentHead = inn.nextInt();
                             switch (departmentHead) {
                                 case 1:
-                                    String EGN;
-                                    String personalPhoneNumber;
+                                    String nurseEGN;
+                                    String nursePersonalPhoneNumber;
                                     System.out.println("Enter forname");
                                     inn.nextLine();
-                                    String forname = inn.nextLine();
+                                    String nurseForname = inn.nextLine();
                                     System.out.println("Enter fathername");
-                                    String fathername = inn.nextLine();
+                                    String nurseFathername = inn.nextLine();
                                     System.out.println("Enter surname");
-                                    String surname = inn.nextLine();
+                                    String nurseSurname = inn.nextLine();
                                     do {
                                         System.out.println("Enter EGN (must be 10 symbols long)");
-                                        EGN = inn.nextLine();
-                                    } while (EGN.length() != 10);
+                                        nurseEGN = inn.nextLine();
+                                    } while (nurseEGN.length() != 10);
                                     do {
                                         System.out.println("Enter phone number (must be 10 symbols long)");
-                                        personalPhoneNumber = inn.nextLine();
-                                    } while (personalPhoneNumber.length() != 10);
+                                        nursePersonalPhoneNumber = inn.nextLine();
+                                    } while (nursePersonalPhoneNumber.length() != 10);
                                     System.out.println("Enter address");
-                                    String address = inn.nextLine();
-                                    long phoneNumber = Long.parseLong(personalPhoneNumber);
-                                    long egn = Long.parseLong(EGN);
+                                    String nurseAddress = inn.nextLine();
+                                    long nursePhoneNumber = Long.parseLong(nursePersonalPhoneNumber);
+                                    long nurseEgn = Long.parseLong(nurseEGN);
                                     try {
-                                        dbo.addNursesToDB(forname, fathername, surname, egn, address, phoneNumber);
+                                        dbo.addNursesToDB(nurseForname, nurseFathername, nurseSurname, nurseEgn, nurseAddress, nursePhoneNumber);
                                     } catch (SQLException e) {
                                         System.out.println("Can't connect to Database. Please try again later or call your IT support");
                                         e.printStackTrace();
