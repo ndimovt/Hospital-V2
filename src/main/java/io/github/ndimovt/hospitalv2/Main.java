@@ -149,7 +149,6 @@ public class Main {
                                     }
                                     break;
                                 case 3:
-                                    System.out.println("try");
                                     break;
                                 case 4:
                                     depHead = false;
