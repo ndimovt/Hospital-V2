@@ -12,7 +12,7 @@ public class Main {
         System.out.println("Welcome to City hospital");
         boolean isTrue = true;
         while (isTrue) {
-            System.out.println("Choose option from the menu: 1) Enter in the system 2)Exit the system");
+            System.out.println("Choose option from the menu: 1) Enter in the system 2)Check staff information 3)Exit the system");
             int choice = inn.nextInt();
             switch (choice) {
                 case 1:
@@ -92,7 +92,7 @@ public class Main {
                         boolean depHead = true;
                         System.out.println("You enter the system as Head of the Department");
                         while (depHead) {
-                            System.out.println("1) Add nurse to the system 2)Add doctor to system 3)Release nurse 4)Release doctor 5)Get staff and patients information 6)Back to main menu");
+                            System.out.println("1) Add nurse to the system 2)Add doctor to system 3)Release nurse 4)Release doctor 5)Back to main menu");
                             int departmentHead = inn.nextInt();
                             switch (departmentHead) {
                                 case 1:
@@ -167,7 +167,21 @@ public class Main {
                                         e.printStackTrace();
                                     }
                                     break;
-                                case 6:
+                                case 4:
+                                    String doctorReleaseEGN;
+                                    do{
+                                        System.out.println("Enter nurse's EGN");
+                                        doctorReleaseEGN = inn.nextLine();
+                                    }while (doctorReleaseEGN.length() != 10);
+                                    long releaseDoctorEgn = Long.parseLong(doctorReleaseEGN);
+                                    try {
+                                        dbo.releaseDoctor(releaseDoctorEgn);
+                                    }catch (SQLException e) {
+                                        System.out.println("Can't connect to Database. Please try again later or call your IT support");
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 5:
                                     depHead = false;
                                     break;
                                 default:
@@ -177,6 +191,8 @@ public class Main {
                     }
                     break;
                 case 2:
+
+                case 3:
                     isTrue = false;
                     System.exit(0);
                     inn.close();
