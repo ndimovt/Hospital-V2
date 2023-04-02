@@ -56,7 +56,12 @@ public class Main {
                                         EGN = inn.nextLine();
                                     } while (EGN.length() != 10);
                                     egn = Long.parseLong(EGN);
-                                    dbo.releasePatient(egn);
+                                    try {
+                                        dbo.releasePatient(egn);
+                                    }catch (SQLException sqe){
+                                        System.out.println("Can't connect to database. Please try again later ot call your IT support");
+                                        sqe.printStackTrace();
+                                    }
                                     break;
                                 case 4:
                                     thisMenu = false;
@@ -87,7 +92,7 @@ public class Main {
                         boolean depHead = true;
                         System.out.println("You enter the system as Head of the Department");
                         while (depHead) {
-                            System.out.println("1) Add nurse to the system 2)Add doctor to system 2)Release staff 3)Get staff and patients information 4)Back to main menu");
+                            System.out.println("1) Add nurse to the system 2)Add doctor to system 3)Release nurse 4)Release doctor 5)Get staff and patients information 6)Back to main menu");
                             int departmentHead = inn.nextInt();
                             switch (departmentHead) {
                                 case 1:
@@ -149,8 +154,20 @@ public class Main {
                                     }
                                     break;
                                 case 3:
+                                    String EGN;
+                                    do{
+                                        System.out.println("Enter nurse's EGN");
+                                        EGN = inn.nextLine();
+                                    }while (EGN.length() != 10);
+                                    long releaseNurseEgn = Long.parseLong(EGN);
+                                    try {
+                                        dbo.releaseNurse(releaseNurseEgn);
+                                    }catch (SQLException e) {
+                                        System.out.println("Can't connect to Database. Please try again later or call your IT support");
+                                        e.printStackTrace();
+                                    }
                                     break;
-                                case 4:
+                                case 6:
                                     depHead = false;
                                     break;
                                 default:

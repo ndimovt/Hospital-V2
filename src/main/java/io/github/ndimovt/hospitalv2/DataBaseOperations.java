@@ -134,7 +134,7 @@ public class DataBaseOperations {
             }
         }
     }
-    protected void releasePatient(long egn){
+    protected void releasePatient(long egn) throws SQLException{
         Connection c = null;
         PreparedStatement pst = null;
         try{
@@ -143,10 +143,49 @@ public class DataBaseOperations {
             pst.setString(1, dbo.DateTime());
             pst.executeUpdate();
             System.out.println("Patient successfully released");
-        }catch (SQLException e){
-            e.printStackTrace();
+        }finally {
+            if(c != null){
+                c.close();
+            }if(pst != null){
+                pst.close();
+            }
         }
     }
+    protected void releaseDoctor(long egn) throws SQLException{
+        Connection doctorConnection = null;
+        PreparedStatement doctorPst = null;
+        try{
+            doctorConnection  = this.getConnection();
+            doctorPst = doctorConnection.prepareStatement("UPDATE doctors_personal_data SET date_out = ? WHERE EGN ='"+egn+"'");
+            doctorPst.setString(1, dbo.DateTime());
+            doctorPst.executeUpdate();
+            System.out.println("Operation is successful");
+        }finally {
+            if(doctorConnection != null){
+                doctorConnection.close();
+            }if(doctorPst != null){
+                doctorPst.close();
+            }
+        }
+    }
+    protected void releaseNurse(long egn) throws SQLException {
+        Connection nurseConnection = null;
+        PreparedStatement nursePst = null;
+        try{
+            nurseConnection  = this.getConnection();
+            nursePst = nurseConnection.prepareStatement("UPDATE nurses_personal_data SET date_out = ? WHERE EGN ='"+egn+"'");
+            nursePst.setString(1, dbo.DateTime());
+            nursePst.executeUpdate();
+            System.out.println("Operation is successful");
+        }finally {
+            if(nurseConnection != null){
+                nurseConnection.close();
+            }if(nursePst != null){
+                nursePst.close();
+            }
+        }
+    }
+
     protected void checkPatientsInfo(){
         Connection c = null;
         ResultSet rs = null;
