@@ -4,8 +4,6 @@ import java.sql.SQLException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        System.out.println("hooooi");
-        System.out.println("koool");
         DataBaseOperations dbo = DataBaseOperations.getInstance();
         Scanner inn = new Scanner(System.in);
         Doctor doctor = new Doctor();
