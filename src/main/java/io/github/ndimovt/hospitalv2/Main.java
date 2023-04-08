@@ -4,7 +4,9 @@ import java.sql.SQLException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        DataBaseOperations dbo = DataBaseOperations.getInstance();
+        GetInformationFromDB getInformationFromDB = GetInformationFromDB.getInstance();
+        RemoveStaffFromDB removeStaffFromDB = RemoveStaffFromDB.getInstance();
+        AddInformationToDB addInfoToDB = AddInformationToDB.getInstance();
         Scanner inn = new Scanner(System.in);
         Doctor doctor = new Doctor();
         Nurse nurse = new Nurse();
@@ -12,7 +14,7 @@ public class Main {
         System.out.println("Welcome to City hospital");
         boolean isTrue = true;
         while (isTrue) {
-            System.out.println("Choose option from the menu: 1) Enter in the system 2)Check staff information 3)Exit the system");
+            System.out.println("Choose option from the menu: 1) Enter in the system 2)Exit the system");
             int choice = inn.nextInt();
             switch (choice) {
                 case 1:
@@ -29,35 +31,36 @@ public class Main {
                             int doctorChoice = inn.nextInt();
                             switch (doctorChoice) {
                                 case 1:
-                                    dbo.checkPatientsInfo();
+                                    getInformationFromDB.checkPatientsInfo();
                                     break;
                                 case 2:
-                                    String EGN;
+                                    String noTreatmentPatientEGN;
                                     do {
                                         System.out.println("Enter patient's EGN (must be 10 symbols long)");
-                                        EGN = inn.nextLine();
-                                    } while (EGN.length() != 10);
-                                    long egn = Long.parseLong(EGN);
+                                        noTreatmentPatientEGN = inn.nextLine();
+                                    } while (noTreatmentPatientEGN.length() != 10);
+                                    long egn = Long.parseLong(noTreatmentPatientEGN);
                                     System.out.println("Enter patient's illness");
                                     inn.nextLine();
                                     String illness = inn.nextLine();
                                     System.out.println("Enter patient's treatment");
                                     String treatment = inn.nextLine();
                                     try {
-                                        dbo.updatePatient(egn, illness, treatment);
+                                        addInfoToDB.updatePatient(egn, illness, treatment);
                                     } catch (SQLException e) {
                                         System.out.println("Can't connect to Database. Please try again later or call your IT support");
                                         e.printStackTrace();
                                     }
                                     break;
                                 case 3:
+                                    String releasePatientEGN;
                                     do {
                                         System.out.println("Enter patient's EGN");
-                                        EGN = inn.nextLine();
-                                    } while (EGN.length() != 10);
-                                    egn = Long.parseLong(EGN);
+                                        releasePatientEGN = inn.nextLine();
+                                    } while (releasePatientEGN.length() != 10);
+                                    egn = Long.parseLong(releasePatientEGN);
                                     try {
-                                        dbo.releasePatient(egn);
+                                        removeStaffFromDB.releasePatient(egn);
                                     }catch (SQLException sqe){
                                         System.out.println("Can't connect to database. Please try again later ot call your IT support");
                                         sqe.printStackTrace();
@@ -83,7 +86,7 @@ public class Main {
                         String address = inn.nextLine();
                         long egn = Long.parseLong(EGN);
                         try {
-                            dbo.addPatientToDB(forname, fathername, surname, egn, address);
+                            addInfoToDB.addPatientToDB(forname, fathername, surname, egn, address);
                         } catch (SQLException e) {
                             System.out.println("Can't connect to Database. Please try again later or call your IT support");
                             e.printStackTrace();
@@ -92,7 +95,8 @@ public class Main {
                         boolean depHead = true;
                         System.out.println("You enter the system as Head of the Department");
                         while (depHead) {
-                            System.out.println("1) Add nurse to the system 2)Add doctor to system 3)Release nurse 4)Release doctor 5)Back to main menu");
+                            System.out.println("1) Add nurse to the system 2)Add doctor to system 3)Release nurse 4)Release doctor " +
+                                    "5) Get information for Doctors 6)Get information for Nurses 7)Get information for Patients 8)Back to main menu");
                             int departmentHead = inn.nextInt();
                             switch (departmentHead) {
                                 case 1:
@@ -118,7 +122,7 @@ public class Main {
                                     long nursePhoneNumber = Long.parseLong(nursePersonalPhoneNumber);
                                     long nurseEgn = Long.parseLong(nurseEGN);
                                     try {
-                                        dbo.addNursesToDB(nurseForname, nurseFathername, nurseSurname, nurseEgn, nurseAddress, nursePhoneNumber);
+                                        addInfoToDB.addNursesToDB(nurseForname, nurseFathername, nurseSurname, nurseEgn, nurseAddress, nursePhoneNumber);
                                     } catch (SQLException e) {
                                         System.out.println("Can't connect to Database. Please try again later or call your IT support");
                                         e.printStackTrace();
@@ -147,21 +151,21 @@ public class Main {
                                     long doctorPhoneNumber = Long.parseLong(doctorPersonalPhoneNumber);
                                     long doctorEgn = Long.parseLong(doctorEGN);
                                     try {
-                                        dbo.addDoctorsToDB(doctorForname, doctorFathername, doctorSurname, doctorEgn, doctorAddress, doctorPhoneNumber);
+                                        addInfoToDB.addDoctorsToDB(doctorForname, doctorFathername, doctorSurname, doctorEgn, doctorAddress, doctorPhoneNumber);
                                     } catch (SQLException e) {
                                         System.out.println("Can't connect to Database. Please try again later or call your IT support");
                                         e.printStackTrace();
                                     }
                                     break;
                                 case 3:
-                                    String EGN;
+                                    String releaseNurseEGN;
                                     do{
                                         System.out.println("Enter nurse's EGN");
-                                        EGN = inn.nextLine();
-                                    }while (EGN.length() != 10);
-                                    long releaseNurseEgn = Long.parseLong(EGN);
+                                        releaseNurseEGN = inn.nextLine();
+                                    }while (releaseNurseEGN.length() != 10);
+                                    long releaseNurseEgn = Long.parseLong(releaseNurseEGN);
                                     try {
-                                        dbo.releaseNurse(releaseNurseEgn);
+                                        removeStaffFromDB.releaseNurse(releaseNurseEgn);
                                     }catch (SQLException e) {
                                         System.out.println("Can't connect to Database. Please try again later or call your IT support");
                                         e.printStackTrace();
@@ -175,13 +179,13 @@ public class Main {
                                     }while (doctorReleaseEGN.length() != 10);
                                     long releaseDoctorEgn = Long.parseLong(doctorReleaseEGN);
                                     try {
-                                        dbo.releaseDoctor(releaseDoctorEgn);
+                                        removeStaffFromDB.releaseDoctor(releaseDoctorEgn);
                                     }catch (SQLException e) {
                                         System.out.println("Can't connect to Database. Please try again later or call your IT support");
                                         e.printStackTrace();
                                     }
                                     break;
-                                case 5:
+                                case 8:
                                     depHead = false;
                                     break;
                                 default:
@@ -191,8 +195,6 @@ public class Main {
                     }
                     break;
                 case 2:
-
-                case 3:
                     isTrue = false;
                     System.exit(0);
                     inn.close();
