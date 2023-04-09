@@ -25,7 +25,7 @@ public class Doctor {
     }
     @Override
     public String toString() {
-        return "" + forname + fathername + surname + address + phoneNumber +"";
+        return "" + forname +"/ "+ fathername +"/ "+ surname +"/ "+ address +"/ "+ phoneNumber +"/ "+dateIn+"";
     }
     protected Doctor(String forname, String fathername, String surname, long egn,String address, long phoneNumber) {
         this.forname = forname;

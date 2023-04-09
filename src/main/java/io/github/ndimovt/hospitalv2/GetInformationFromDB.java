@@ -39,7 +39,7 @@ public class GetInformationFromDB {
                         rs.getString("illness"),
                         rs.getString("treatment"),
                         rs.getString("date_in"));
-                System.out.println(p.toString());
+                System.out.println(p);
             }
         }finally {
             if(c != null){
@@ -71,8 +71,7 @@ public class GetInformationFromDB {
                         rs.getString("address"),
                         rs.getLong("phone_number"),
                         rs.getString("date_in"));
-                //System.out.println(d);
-                d.toString();
+                System.out.println(d);
             }
         }finally {
             if(c != null){
@@ -84,7 +83,37 @@ public class GetInformationFromDB {
             }
         }
     }
-    protected void checkNursesInfo(){
-
+    protected void checkNursesInfo(String nurseEGN)throws SQLException{
+        Connection con = null;
+        ResultSet rsn = null;
+        PreparedStatement ps = null;
+        try{
+            con = this.getConnection();
+            ps = con.prepareStatement("""
+                    SELECT n.forename, n.fathername, n.surname, npd.address, npd.phone_number, npd.date_in
+                    FROM nurses n
+                    JOIN nurses_personal_data npd ON n.EGN = npd.EGN
+                    WHERE n.EGN = """+nurseEGN+"""
+                    """
+            );
+            rsn = ps.executeQuery();
+            while(rsn.next()){
+                Nurse nurse = new Nurse(rsn.getString("forename"),
+                        rsn.getString("fathername"),
+                        rsn.getString("surname"),
+                        rsn.getString("address"),
+                        rsn.getLong("phone_number"),
+                        rsn.getString("date_in"));
+                System.out.println(nurse);
+            }
+        }finally {
+            if(con != null){
+                con.close();
+            }if(rsn != null){
+                rsn.close();
+            }if(ps != null){
+                ps.close();
+            }
+        }
     }
 }

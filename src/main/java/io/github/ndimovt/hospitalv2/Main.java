@@ -164,8 +164,8 @@ public class Main {
                                     break;
                                 case 3:
                                     String releaseNurseEGN;
+                                    System.out.println("Enter nurse's EGN");
                                     do{
-                                        System.out.println("Enter nurse's EGN");
                                         releaseNurseEGN = inn.nextLine();
                                     }while (releaseNurseEGN.length() != 10);
                                     long releaseNurse = Long.parseLong(releaseNurseEGN);
@@ -178,8 +178,8 @@ public class Main {
                                     break;
                                 case 4:
                                     String doctorReleaseEGN;
+                                    System.out.println("Enter doctor's EGN");
                                     do{
-                                        System.out.println("Enter nurse's EGN");
                                         doctorReleaseEGN = inn.nextLine();
                                     }while (doctorReleaseEGN.length() != 10);
                                     long releaseDoctorEgn = Long.parseLong(doctorReleaseEGN);
@@ -204,6 +204,17 @@ public class Main {
                                     }
                                     break;
                                 case 6:
+                                    String nurseInfoEGN;
+                                    System.out.println("Enter nurse's EGN: ");
+                                    do{
+                                        nurseInfoEGN = inn.nextLine();
+                                    }while (nurseInfoEGN.length() != 10);
+                                    try{
+                                        getInformationFromDB.checkNursesInfo(nurseInfoEGN);
+                                    }catch (SQLException we){
+                                        System.out.println("Can't connect to Database. Please try again later or call your IT support");
+                                        we.printStackTrace();
+                                    }
                                     break;
                                 case 7:
                                     try{
