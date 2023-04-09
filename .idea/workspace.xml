@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66698801-f415-48f3-8e94-397642bb7087" name="Changes" comment="Hospital V3.0&#10;added options for inserting Doctors and Nurses to DB" />
+    <list default="true" id="66698801-f415-48f3-8e94-397642bb7087" name="Changes" comment="Hospital V3.0&#10;added options for inserting Doctors and Nurses to DB">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/DataBaseOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/DataBaseOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,28 +127,7 @@
       <option name="project" value="LOCAL" />
       <updated>1680375580813</updated>
     </task>
-    <task id="LOCAL-00008" summary="Hospital V3.0&#10;added options for inserting Doctors and Nurses to DB">
-      <created>1680447847335</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1680447847335</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Hospital V3.0&#10;added options for inserting Doctors and Nurses to DB">
-      <created>1680447988233</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1680447988233</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Hospital V3.0&#10;added options for inserting Doctors and Nurses to DB">
-      <created>1680448044052</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1680448044052</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

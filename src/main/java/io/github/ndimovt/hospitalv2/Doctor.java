@@ -7,15 +7,31 @@ public class Doctor {
     private long EGN;
     private String address;
     private long phoneNumber;
+    private String dateIn;
+    private String dateOut;
+
+    protected Doctor(String forname, String fathername, String surname, String address, long phoneNumber, String dateIn) {
+        this.forname = forname;
+        this.fathername = fathername;
+        this.surname = surname;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.dateIn = dateIn;
+    }
+
     private String username = "doctor1";
     private String password = "password2";
     protected Doctor() {
     }
-    protected Doctor(String forname, String fathername, String surname, long EGN, String address, long phoneNumber) {
+    @Override
+    public String toString() {
+        return "" + forname +"/ "+ fathername +"/ "+ surname +"/ "+ address +"/ "+ phoneNumber +"/ "+dateIn+"";
+    }
+    protected Doctor(String forname, String fathername, String surname, long egn,String address, long phoneNumber) {
         this.forname = forname;
         this.fathername = fathername;
         this.surname = surname;
-        this.EGN = EGN;
+        this.EGN = egn;
         this.address = address;
         this.phoneNumber = phoneNumber;
     }

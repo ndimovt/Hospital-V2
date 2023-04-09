@@ -22,7 +22,7 @@ public class Patient{
     }
     @Override
     public String toString() {
-        return ""+forname+fathername+surname+EGN+address+illness+treatment+dateIn+"";
+        return ""+forname+"/ "+fathername+"/ "+surname+"/ "+EGN+"/ "+address+"/ "+illness+"/ "+treatment+"/ "+dateIn+"";
     }
     public String getIllness() {
         return illness;
