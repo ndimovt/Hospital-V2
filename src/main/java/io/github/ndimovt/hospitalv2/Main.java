@@ -59,7 +59,7 @@ public class Main {
                                     break;
                                 case 3:
                                     String releasePatientEGN;
-                                    System.out.println("Enter patient's EGN");
+                                    System.out.println("Enter patient's EGN1");
                                     do {
                                         releasePatientEGN = inn.nextLine();
                                     } while (releasePatientEGN.length() != 10);
