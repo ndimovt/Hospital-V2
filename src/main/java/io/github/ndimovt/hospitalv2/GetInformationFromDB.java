@@ -17,7 +17,7 @@ public class GetInformationFromDB {
         DBConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital", "root", "sheeuser123456@");
         return DBConnection;
     }
-    protected void checkPatientsInfo(){
+    protected void checkPatientsInfo()throws SQLException{
         Connection c = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
@@ -30,18 +30,61 @@ public class GetInformationFromDB {
                     """);
             rs = ps.executeQuery();
             while(rs.next()){
-                Patient p = new Patient(rs.getString("forename"),
+                Patient p = new Patient(
+                        rs.getString("forename"),
                         rs.getString("fathername"),
                         rs.getString("surname"),
                         rs.getLong("EGN"),
                         rs.getString("adress"),
                         rs.getString("illness"),
                         rs.getString("treatment"),
-                        rs.getString("date_in") );
-                System.out.println(p);
+                        rs.getString("date_in"));
+                System.out.println(p.toString());
             }
-        }catch (SQLException e){
-            e.printStackTrace();
+        }finally {
+            if(c != null){
+                c.close();
+            }if(rs != null){
+                rs.close();
+            }if(ps != null){
+                ps.close();
+            }
         }
+    }
+    protected void checkDoctorsInfo(String doctorInfoEGN) throws SQLException{
+        Connection c = null;
+        ResultSet rs = null;
+        PreparedStatement pst = null;
+        try{
+            c = this.getConnection();
+            pst = c.prepareStatement("""
+                    SELECT d.forename, d.fathername, d.surname, dpd.address, dpd.phone_number, dpd.date_in
+                    FROM doctors d
+                    JOIN doctors_personal_data dpd ON d.EGN = dpd.EGN
+                    WHERE d.EGN = """+doctorInfoEGN+"""
+                    """);
+            rs = pst.executeQuery();
+            while (rs.next()){
+                Doctor d = new Doctor(rs.getString("forename"),
+                        rs.getString("fathername"),
+                        rs.getString("surname"),
+                        rs.getString("address"),
+                        rs.getLong("phone_number"),
+                        rs.getString("date_in"));
+                //System.out.println(d);
+                d.toString();
+            }
+        }finally {
+            if(c != null){
+                c.close();
+            }if(rs != null){
+                rs.close();
+            }if(pst != null){
+                pst.close();
+            }
+        }
+    }
+    protected void checkNursesInfo(){
+
     }
 }

@@ -124,7 +124,7 @@ public class AddInformationToDB {
             pst.setString(1,illness);
             pst.setString(2,treatment);
             pst.executeUpdate();
-            System.out.println("Patient's info successfully updated");
+            System.out.println("Patient's info successfully updated!");
         } finally{
             if(c != null){
                 c.close();

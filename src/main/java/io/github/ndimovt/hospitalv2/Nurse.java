@@ -6,6 +6,7 @@ public class Nurse {
     private long EGN;
     private String address;
     private long phoneNumber;
+    private String dateIn;
     private String username = "nurse1";
     private String password = "password1";
     protected Nurse() {

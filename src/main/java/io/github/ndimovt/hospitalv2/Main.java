@@ -31,17 +31,22 @@ public class Main {
                             int doctorChoice = inn.nextInt();
                             switch (doctorChoice) {
                                 case 1:
-                                    getInformationFromDB.checkPatientsInfo();
+                                    try {
+                                        getInformationFromDB.checkPatientsInfo();
+                                    }catch (SQLException sqe){
+                                        System.out.println("Can't connect to Database. Please try again later or call your IT support");
+                                        sqe.printStackTrace();
+                                    }
                                     break;
                                 case 2:
                                     String noTreatmentPatientEGN;
+                                    System.out.println("Enter patient's EGN (must be 10 symbols long)");
                                     do {
-                                        System.out.println("Enter patient's EGN (must be 10 symbols long)");
                                         noTreatmentPatientEGN = inn.nextLine();
                                     } while (noTreatmentPatientEGN.length() != 10);
                                     long egn = Long.parseLong(noTreatmentPatientEGN);
                                     System.out.println("Enter patient's illness");
-                                    inn.nextLine();
+                                    //inn.nextLine();
                                     String illness = inn.nextLine();
                                     System.out.println("Enter patient's treatment");
                                     String treatment = inn.nextLine();
@@ -54,8 +59,8 @@ public class Main {
                                     break;
                                 case 3:
                                     String releasePatientEGN;
+                                    System.out.println("Enter patient's EGN");
                                     do {
-                                        System.out.println("Enter patient's EGN");
                                         releasePatientEGN = inn.nextLine();
                                     } while (releasePatientEGN.length() != 10);
                                     egn = Long.parseLong(releasePatientEGN);
@@ -163,9 +168,9 @@ public class Main {
                                         System.out.println("Enter nurse's EGN");
                                         releaseNurseEGN = inn.nextLine();
                                     }while (releaseNurseEGN.length() != 10);
-                                    long releaseNurseEgn = Long.parseLong(releaseNurseEGN);
+                                    long releaseNurse = Long.parseLong(releaseNurseEGN);
                                     try {
-                                        removeStaffFromDB.releaseNurse(releaseNurseEgn);
+                                        removeStaffFromDB.releaseNurse(releaseNurse);
                                     }catch (SQLException e) {
                                         System.out.println("Can't connect to Database. Please try again later or call your IT support");
                                         e.printStackTrace();
@@ -181,6 +186,29 @@ public class Main {
                                     try {
                                         removeStaffFromDB.releaseDoctor(releaseDoctorEgn);
                                     }catch (SQLException e) {
+                                        System.out.println("Can't connect to Database. Please try again later or call your IT support");
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 5:
+                                    String checkDoctorEGN;
+                                    do{
+                                        System.out.println("Enter doctor's EGN");
+                                        checkDoctorEGN = inn.nextLine();
+                                    }while (checkDoctorEGN.length() != 10);
+                                    try{
+                                        getInformationFromDB.checkDoctorsInfo(checkDoctorEGN);
+                                    }catch (SQLException se){
+                                        System.out.println("Can't connect to Database. Please try again later or call your IT support");
+                                        se.printStackTrace();
+                                    }
+                                    break;
+                                case 6:
+                                    break;
+                                case 7:
+                                    try{
+                                        getInformationFromDB.checkPatientsInfo();
+                                    }catch (SQLException e){
                                         System.out.println("Can't connect to Database. Please try again later or call your IT support");
                                         e.printStackTrace();
                                     }
