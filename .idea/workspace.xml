@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66698801-f415-48f3-8e94-397642bb7087" name="Changes" comment="I updated a bunch of code releated to database operations and added more functionalitites to Department head class">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Doctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/GetInformationFromDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/GetInformationFromDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Nurse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Nurse.java" afterDir="false" />
-    </list>
+    <list default="true" id="66698801-f415-48f3-8e94-397642bb7087" name="Changes" comment="I updated a bunch of code releated to database operations and added more functionalitites to Department head class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -136,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681041298443</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="I updated a bunch of code releated to database operations and added more functionalitites to Department head class">
+      <created>1681061090660</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681061090660</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
