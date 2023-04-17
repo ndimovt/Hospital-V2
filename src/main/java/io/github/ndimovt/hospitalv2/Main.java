@@ -1,7 +1,7 @@
 package io.github.ndimovt.hospitalv2;
 
 import java.sql.SQLException;
-import java.util.Scanner;
+import java.util.Scanner ;
 public class Main {
     public static void main(String[] args) {
         GetInformationFromDB getInformationFromDB = GetInformationFromDB.getInstance();

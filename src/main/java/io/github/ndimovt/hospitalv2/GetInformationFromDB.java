@@ -1,7 +1,6 @@
 package io.github.ndimovt.hospitalv2;
 
 import java.sql.*;
-
 public class GetInformationFromDB {
     private static GetInformationFromDB getInformationFromDB;
     private GetInformationFromDB() {

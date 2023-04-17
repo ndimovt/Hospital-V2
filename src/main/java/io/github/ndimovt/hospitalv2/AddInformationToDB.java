@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 public class AddInformationToDB {
    private static AddInformationToDB addInformationToDB;
     private AddInformationToDB() {
@@ -20,12 +18,6 @@ public class AddInformationToDB {
         Connection DBConnection = null;
         DBConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital", "root", "sheeuser123456@");
         return DBConnection;
-    }
-    private String DateTime() {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime currentDateAndTime = LocalDateTime.now();
-        String dateAndTime = currentDateAndTime.format(format);
-        return dateAndTime;
     }
     protected void addDoctorsToDB(String forname, String fatherName, String surname, long egn, String address, long phoneNumber) throws SQLException {
         Connection c = null;
@@ -42,7 +34,7 @@ public class AddInformationToDB {
             pst1.setLong(1, egn);
             pst1.setString(2, address);
             pst1.setLong(3, phoneNumber);
-            pst1.setString(4, addInformationToDB.DateTime());
+            pst1.setString(4,DateAndTime.dateTime);
             pst.executeUpdate();
             pst1.executeUpdate();
             System.out.println("Doctor added to database");
@@ -73,7 +65,7 @@ public class AddInformationToDB {
             pst1.setLong(1, egn);
             pst1.setString(2, address);
             pst1.setLong(3, phoneNumber);
-            pst1.setString(4, addInformationToDB.DateTime());
+            pst1.setString(4, DateAndTime.dateTime);
             pst.executeUpdate();
             pst1.executeUpdate();
             System.out.println("Nurse added to database");
@@ -101,7 +93,7 @@ public class AddInformationToDB {
             pst.setLong(4, egn);
             pst1.setLong(1,egn);
             pst1.setString(2,address);
-            pst1.setString(3, addInformationToDB.DateTime());
+            pst1.setString(3, DateAndTime.dateTime);
             pst.executeUpdate();
             pst1.executeUpdate();
             System.out.println("Patient successfully added to DataBase");

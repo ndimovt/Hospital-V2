@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 public class RemoveStaffFromDB {
     private static RemoveStaffFromDB removeStaffFromDB;
     private RemoveStaffFromDB() {
@@ -21,19 +19,13 @@ public class RemoveStaffFromDB {
         DBConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital", "root", "sheeuser123456@");
         return DBConnection;
     }
-    private String DateTime() {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime currentDateAndTime = LocalDateTime.now();
-        String dateAndTime = currentDateAndTime.format(format);
-        return dateAndTime;
-    }
-    protected void releasePatient(long egn) throws SQLException{
+        protected void releasePatient(long egn) throws SQLException{
         Connection c = null;
         PreparedStatement pst = null;
         try{
             c  = this.getConnection();
             pst = c.prepareStatement("UPDATE patients_personal_data SET date_out = ? WHERE EGN ='"+egn+"'");
-            pst.setString(1, removeStaffFromDB.DateTime());
+            pst.setString(1, DateAndTime.dateTime);
             pst.executeUpdate();
             System.out.println("Patient successfully released");
         }finally {
@@ -50,7 +42,7 @@ public class RemoveStaffFromDB {
         try{
             doctorConnection  = this.getConnection();
             doctorPst = doctorConnection.prepareStatement("UPDATE doctors_personal_data SET date_out = ? WHERE EGN ='"+egn+"'");
-            doctorPst.setString(1, removeStaffFromDB.DateTime());
+            doctorPst.setString(1, DateAndTime.dateTime);
             doctorPst.executeUpdate();
             System.out.println("Operation is successful");
         }finally {
@@ -67,7 +59,7 @@ public class RemoveStaffFromDB {
         try{
             nurseConnection  = this.getConnection();
             nursePst = nurseConnection.prepareStatement("UPDATE nurses_personal_data SET date_out = ? WHERE EGN ='"+egn+"'");
-            nursePst.setString(1, removeStaffFromDB.DateTime());
+            nursePst.setString(1, DateAndTime.dateTime);
             nursePst.executeUpdate();
             System.out.println("Operation is successful");
         }finally {
