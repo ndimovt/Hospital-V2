@@ -23,15 +23,7 @@ public class Nurse {
         this.phoneNumber = phoneNumber;
         this.dateIn = dateIn;
     }
-    protected Nurse(String forname, String fathername, String surname, long EGN, String address, long phoneNumber) {
-        this.forname = forname;
-        this.fathername = fathername;
-        this.surname = surname;
-        this.EGN = EGN;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-    }
-    public String getForname() {
+        public String getForname() {
         return forname;
     }
     public String getFathername() {

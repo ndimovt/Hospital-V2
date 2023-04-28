@@ -8,7 +8,7 @@ public class Patient{
     private String illness;
     private String treatment;
     private String dateIn;
-    protected Patient(String forname, String fathername, String surname, long EGN, String address, String illness, String treatment,String dateIn) {
+    public Patient(String forname, String fathername, String surname, long EGN, String address, String illness, String treatment,String dateIn) {
         this.illness = illness;
         this.treatment = treatment;
         this.forname = forname;
@@ -17,8 +17,6 @@ public class Patient{
         this.EGN = EGN;
         this.address = address;
         this.dateIn = dateIn;
-    }
-    protected Patient() {
     }
     @Override
     public String toString() {
