@@ -60,8 +60,9 @@ public class GetInformationFromDB {
                     SELECT d.forename, d.fathername, d.surname, dpd.address, dpd.phone_number, dpd.date_in
                     FROM doctors d
                     JOIN doctors_personal_data dpd ON d.EGN = dpd.EGN
-                    WHERE d.EGN = """+doctorInfoEGN+"""
+                    WHERE d.EGN = ?
                     """);
+            pst.setString(1,doctorInfoEGN);
             rs = pst.executeQuery();
             while (rs.next()){
                 Doctor d = new Doctor(rs.getString("forename"),

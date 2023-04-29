@@ -46,7 +46,6 @@ public class Main {
                                     } while (noTreatmentPatientEGN.length() != 10);
                                     long egn = Long.parseLong(noTreatmentPatientEGN);
                                     System.out.println("Enter patient's illness");
-                                    //inn.nextLine();
                                     String illness = inn.nextLine();
                                     System.out.println("Enter patient's treatment");
                                     String treatment = inn.nextLine();
