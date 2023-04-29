@@ -93,9 +93,10 @@ public class GetInformationFromDB {
                     SELECT n.forename, n.fathername, n.surname, npd.address, npd.phone_number, npd.date_in
                     FROM nurses n
                     JOIN nurses_personal_data npd ON n.EGN = npd.EGN
-                    WHERE n.EGN = """+nurseEGN+"""
+                    WHERE n.EGN = ?
                     """
             );
+            ps.setString(1,nurseEGN);
             rsn = ps.executeQuery();
             while(rsn.next()){
                 Nurse nurse = new Nurse(rsn.getString("forename"),
