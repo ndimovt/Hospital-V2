@@ -50,7 +50,7 @@ public class Main {
                                     System.out.println("Enter patient's treatment");
                                     String treatment = inn.nextLine();
                                     try {
-                                        addInfoToDB.updatePatient(egn, illness, treatment);
+                                        addInfoToDB.updatePatient(illness, treatment, egn);
                                     } catch (SQLException e) {
                                         System.out.println("Can't connect to Database. Please try again later or call your IT support");
                                         e.printStackTrace();

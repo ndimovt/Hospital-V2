@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66698801-f415-48f3-8e94-397642bb7087" name="Changes" comment="In this update i removed code that i don't use">
+    <list default="true" id="66698801-f415-48f3-8e94-397642bb7087" name="Changes" comment="Fixes #2 Escaping SQL injection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/DateAndTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/DateAndTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/GetInformationFromDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/GetInformationFromDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/AddInformationToDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/AddInformationToDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/RemoveStaffFromDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/ndimovt/hospitalv2/RemoveStaffFromDB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +60,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Nikolai/IdeaProjects/BookStore&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Nikolai/IdeaProjects/SCJP&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -142,7 +142,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682711397489</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="#2 Escaping SQL injection">
+      <created>1682756188929</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682756188929</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fixes #2 Escaping SQL injection">
+      <created>1682756293609</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682756293609</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -189,6 +203,8 @@
     <MESSAGE value="Hospital V3.0&#10;added options for inserting Doctors and Nurses to DB" />
     <MESSAGE value="In this update i created DateAndTime class which get the current date and time and add them to the Database" />
     <MESSAGE value="In this update i removed code that i don't use" />
-    <option name="LAST_COMMIT_MESSAGE" value="In this update i removed code that i don't use" />
+    <MESSAGE value="#2 Escaping SQL injection" />
+    <MESSAGE value="Fixes #2 Escaping SQL injection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes #2 Escaping SQL injection" />
   </component>
 </project>

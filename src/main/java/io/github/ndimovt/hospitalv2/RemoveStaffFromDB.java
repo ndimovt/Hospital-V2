@@ -24,8 +24,9 @@ public class RemoveStaffFromDB {
         PreparedStatement pst = null;
         try{
             c  = this.getConnection();
-            pst = c.prepareStatement("UPDATE patients_personal_data SET date_out = ? WHERE EGN ='"+egn+"'");
+            pst = c.prepareStatement("UPDATE patients_personal_data SET date_out = ? WHERE EGN = ?");
             pst.setString(1, DateAndTime.dateTime);
+            pst.setLong(2,egn);
             pst.executeUpdate();
             System.out.println("Patient successfully released");
         }finally {
@@ -41,8 +42,9 @@ public class RemoveStaffFromDB {
         PreparedStatement doctorPst = null;
         try{
             doctorConnection  = this.getConnection();
-            doctorPst = doctorConnection.prepareStatement("UPDATE doctors_personal_data SET date_out = ? WHERE EGN ='"+egn+"'");
+            doctorPst = doctorConnection.prepareStatement("UPDATE doctors_personal_data SET date_out = ? WHERE EGN = ?");
             doctorPst.setString(1, DateAndTime.dateTime);
+            doctorPst.setLong(2,egn);
             doctorPst.executeUpdate();
             System.out.println("Operation is successful");
         }finally {
@@ -58,8 +60,9 @@ public class RemoveStaffFromDB {
         PreparedStatement nursePst = null;
         try{
             nurseConnection  = this.getConnection();
-            nursePst = nurseConnection.prepareStatement("UPDATE nurses_personal_data SET date_out = ? WHERE EGN ='"+egn+"'");
+            nursePst = nurseConnection.prepareStatement("UPDATE nurses_personal_data SET date_out = ? WHERE EGN = ?");
             nursePst.setString(1, DateAndTime.dateTime);
+            nursePst.setLong(2,egn);
             nursePst.executeUpdate();
             System.out.println("Operation is successful");
         }finally {

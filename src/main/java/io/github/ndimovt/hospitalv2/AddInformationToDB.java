@@ -107,14 +107,15 @@ public class AddInformationToDB {
             }
         }
     }
-    protected void updatePatient(long egn,String illness, String treatment) throws SQLException {
+    protected void updatePatient(String illness, String treatment, long patienEGN) throws SQLException {
         Connection c = null;
         PreparedStatement pst = null;
         try{
             c = this.getConnection();
-            pst = c.prepareStatement("UPDATE patients_personal_data SET illness = ? ,treatment = ? WHERE EGN ='"+egn+"'");
+            pst = c.prepareStatement("UPDATE patients_personal_data SET illness = ? ,treatment = ? WHERE EGN = ?");
             pst.setString(1,illness);
             pst.setString(2,treatment);
+            pst.setLong(3,patienEGN);
             pst.executeUpdate();
             System.out.println("Patient's info successfully updated!");
         } finally{
